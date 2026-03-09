@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+#pagina{
+}
+
+body{
+	background-color: #ffebfb;
+	font-family: 'Poppins'
+	
+}
+
+h2{
+	text-align: center;
+	
+}
+
+h3{
+	margin-top: 40px;
+	margin-left: 20px;
+	color: #e45882;
+}
+
+
+#topo{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+	margin: 40px auto;
+	width: 1200px;
+  	height: auto;
+  	border-radius: 30px;
+  	border: 4px solid #2c3e50;
+  	box-shadow: 10px 10px 20px rgba(0,0,0,0.25);
+	background-color: #ffbf75;
+}
+
+#menu-principal{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: left;
+	margin: 40px auto;
+	width: 200px;
+  	height: auto;
+  	border-radius: 30px;
+  	border: 4px solid #2c3e50;
+  	box-shadow: 10px 10px 20px rgba(0,0,0,0.25);
+	background-color: #96d4fd;
+
+}
+
+section{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: left;
+	padding: 20px;
+	margin: 40px auto;
+	width: 800px;
+  	height: auto;
+  	border-radius: 30px;
+  	border: 4px solid #2c3e50;
+  	box-shadow: 10px 10px 20px rgba(0,0,0,0.25);
+	background-color: #96d4fd;
+}
+
+header{
+	margin: 40px auto;
+	margin-top: 150px;
+	margin-bottom: 50px;
+	text-align: center;
+	width: 1200px;
+  	height: auto;
+  	border-radius: 30px;
+  	border: 4px solid #2c3e50;
+  	box-shadow: 10px 10px 20px rgba(0,0,0,0.25);
+	background-color: #ffbf75;
+
+}
+
+nav{
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: left;
+	margin: 40px auto;
+	width: 200px;
+  	height: auto;
+  	border-radius: 30px;
+  	border: 4px solid #2c3e50;
+  	box-shadow: 10px 10px 20px rgba(0,0,0,0.25);
+	background-color: #96d4fd;
+
+}
+
+footer{
+	text-align: center;
+	font-size: 10px;
+}
+
