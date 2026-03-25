@@ -4,7 +4,7 @@ const btn = document.getElementById("btn");
 const estados = {
     normal:"bichofofo.jpg",
     clicado:"comendo.png",
-    alimentado:"cheio.png",
+    alimentado:"cheio.jpg",
     fome30:"puto.jpg",
     fome60:"morto.png",
 }
@@ -29,6 +29,23 @@ function init_cont() {
             bicho.src = estados.fome60;
         }
     }, 1000)
+}
+
+function alimentar() {
+    bicho.src= estados.clicado;
+    contador = 0;
+    console.log("Comeu essa merda");
+
+    if(time_click) clearInterval(time_click) 
+
+        time_click = setTimeout(()=>{
+            bicho.src = estados.alimentado;
+            
+            time_out = setTimeout(()=>{
+                bicho.src = estados.normal;
+            }, 5000);
+        }, 4000);
+    
 }
 
 init_cont();
