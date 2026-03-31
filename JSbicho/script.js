@@ -14,23 +14,28 @@ let intervalo = null;
 let time_click = null;
 let time_out = null;
 
+function aumentarTempo() {
+    contador = contador + 5;
+}
+
 function init_cont() {
     if(intervalo) clearInterval(intervalo)
 
     intervalo = setInterval(()=>{
-        contador++
-        console.log("Tempo: ", contador)
+        contador++;
+  
+        console.log("Tempo: ", contador);
 
          if (contador < 30){
             document.body.style.backgroundImage = "url('fundoNormal.png')";
         }
 
-        if (contador == 30){
+        if (contador >= 30 && contador < 60){
             bicho.src = estados.fome30;
             document.body.style.backgroundImage = "url('fundoMedio.png')";
         }
 
-         if (contador == 60){
+         if (contador > 60){
             bicho.src = estados.fome60;
             document.body.style.backgroundImage = "url('fundoMerda.png')";
         }

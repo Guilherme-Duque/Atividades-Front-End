@@ -18,7 +18,7 @@ body {
     cursor: pointer;
 }
 
-#btn {
+.botao {
     margin-top: 20px;
     cursor: pointer;
     width: 100px;
