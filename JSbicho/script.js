@@ -22,17 +22,17 @@ function init_cont() {
         console.log("Tempo: ", contador)
 
          if (contador < 30){
-            document.body.style.backgroundImage = url("fundoNormal.png");
+            document.body.style.backgroundImage = "url('fundoNormal.png')";
         }
 
         if (contador == 30){
             bicho.src = estados.fome30;
-            document.body.style.backgroundImage = url("fundoMedio.png");
+            document.body.style.backgroundImage = "url('fundoMedio.png')";
         }
 
          if (contador == 60){
             bicho.src = estados.fome60;
-            document.body.style.backgroundImage = url("fundomMerda.png");
+            document.body.style.backgroundImage = "url('fundoMerda.png')";
         }
     }, 1000)
 }
