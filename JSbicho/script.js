@@ -2,11 +2,11 @@ const bicho = document.getElementById("bicho");
 const btn = document.getElementById("btn");
 
 const estados = {
-    normal:"bichofofo.jpg",
-    clicado:"comendo.png",
-    alimentado:"cheio.jpg",
-    fome30:"puto.jpg",
-    fome60:"morto.png",
+    normal:"bichofofo2.png",
+    clicado:"comendo2.png",
+    alimentado:"cheio2.png",
+    fome30:"puto2.png",
+    fome60:"morto2.png",
 }
 
 let contador = 0;
@@ -21,12 +21,18 @@ function init_cont() {
         contador++
         console.log("Tempo: ", contador)
 
+         if (contador < 30){
+            document.body.style.backgroundImage = url("fundoNormal.png");
+        }
+
         if (contador == 30){
             bicho.src = estados.fome30;
+            document.body.style.backgroundImage = url("fundoMedio.png");
         }
 
          if (contador == 60){
             bicho.src = estados.fome60;
+            document.body.style.backgroundImage = url("fundomMerda.png");
         }
     }, 1000)
 }
