@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<title>Caixa Livre</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+ 	
+	<style>
+		.topo {
+			background: #ffc107;
+			text-align: center;
+			font-size: 43px;
+			font-weight: blod;		
+		}
+
+		.painel {
+			background: #ddd;
+			padding: 10px;
+			border: 2px solid #110c8a;
+		}
+
+		.total {
+			font-size: 28px;
+			font-weight: blod;
+			font-align: right;
+		}
+
+		div {
+			border-width: 2px 10px 4px 10px; 
+			border-style: solid;
+		}
+
+		.container.mt-3 {
+			border-color: red;
+		}
+
+		.row.mt-2 {
+			border-color: yellow;
+		}
+		
+		.col-md-7{
+			border-color: purple;
+		}
+
+		
+	</style>
+
+</head>
+
+<body class ="bg-primary bg-gradient">
+
+	<div class="container mt-3">
+
+		<div class="topo"> CAIXA LIVRE </div>
+
+		<div class="row mt-2">
+
+			<div class="col-md-7">
+				<h3 class="text-white"> <span class="badge text-bg-primary"> Sua Compra </span> </h3>
+				<ul id="lista" class="list-group lista"> </ul>
+			</div>
+			
+			<div class= "col-md-5">
+
+				<div class="painel total"> Total: R$ <span id="total">0,00</span> </div>
+			
+				<div class="painel">
+					<lable> Código de Barras </lable> 
+					<input type="text" id="cod" class="form-control"> </input>
+				</div>
+
+				<div class="painel">
+					<label> Quantidade </lable> 
+					<input type="number" id="qtd" class="form-control" value=1> </input>
+				</div>
+
+				
+				<button class="btn btn-success w-100" onclick="add()"> Adicionar Produto </button>
+
+
+			</div>
+		
+		</div>
+
+	</div>
+
+</body>
+<script src="script.js"></script>
+</html>
