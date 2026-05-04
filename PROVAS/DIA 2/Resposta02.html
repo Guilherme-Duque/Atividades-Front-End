@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Grupos da Copa 2026</title>
+    <style>
+  
+        body {
+            background-color: #f0f2f5; 
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center; 
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        #container-grupos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px; 
+        }
+
+        .cartao-grupo {
+            background-color: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 12px; 
+            padding: 20px; 
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .cartao-grupo:hover {
+            transform: translateY(-5px);
+        }
+
+        h4 { color: #3498db; margin-top: 0; }
+        ul { padding-left: 20px; color: #555; }
+        details { cursor: pointer; margin-top: 15px; color: #2c3e50; font-size: 0.9em; }
+        
+        .btn-proximo {
+            display: block;
+            margin: 30px auto;
+            padding: 10px 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>⚽ Grupos e Seleções</h1>
+    </header>
+
+    <div id="container-grupos">
+        <div id="grupo-1" class="cartao-grupo">
+            <h4>🅰️ Grupo A</h4>
+            <h5>Seleções</h5>
+            <ul>
+                <li>México</li>
+                <li>África do Sul</li>
+                <li>Coreia do Sul</li>
+                <li>República Tcheca</li>
+            </ul>
+            <details>
+                <summary><strong>Saiba Mais</strong></summary>
+                <p>O jogo de abertura será México x África do Sul. Confrontos entre Coreia do Sul e seleções europeias já ocorreram em várias Copas, com histórico equilibrado.</p>
+            </details>
+        </div>
+
+        <div id="grupo-2" class="cartao-grupo">
+            <h4>🅱️ Grupo B</h4>
+            <h5>Seleções</h5>
+            <ul>
+                <li>Canadá</li>
+                <li>Suíça</li>
+                <li>Catar</li>
+                <li>Vaga Europeia (Bósnia)</li>
+            </ul>
+            <details>
+                <summary><strong>Saiba Mais</strong></summary>
+                <p>O Canadá joga em casa, fator importante de desempenho. Catar e Suíça já se enfrentaram recentemente em amistosos internacionais.</p>
+            </details>
+        </div>
+
+        <div id="grupo-3" class="cartao-grupo">
+            <h4>🅲 Grupo C</h4>
+            <h5>Seleções</h5>
+            <ul>
+                <li>Brasil</li>
+                <li>Marrocos</li>
+                <li>Haiti</li>
+                <li>Escócia</li>
+            </ul>
+            <details>
+                <summary><strong>Saiba Mais</strong></summary>
+                <p>Brasil, Marrocos e Escócia já dividiram grupo em 1998. Brasil nunca perdeu para a Escócia em Copas.</p>
+            </details>
+        </div>
+    </div>
+
+    <button class="btn-proximo" onclick="proximo()">Próximo</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

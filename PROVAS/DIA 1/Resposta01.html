@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliação Prática de FrontEnd</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f4f7f6;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+
+         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        h2 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        .secao {
+            background-color: #e8f4fd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Informações sobre a Copa do Mundo 2026</h1>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <a href="#organizacao">Organização</a>
+        <a href="#formato">Formato</a>
+        <a href="#impacto">Impacto</a>
+    </nav>
+
+    <!-- SEÇÕES -->
+    <section id="organizacao" class="secao">
+        <h2>🌍 Organização e Sedes</h2>
+        <p>
+            A Copa do Mundo FIFA de 2026 será a primeira edição realizada em três países:
+            Estados Unidos, Canadá e México. Será também a maior Copa da história em número de cidades-sede.
+        </p>
+    </section>
+
+    <section id="formato" class="secao">
+        <h2>⚽ Novo Formato</h2>
+        <p>
+            O torneio contará com 48 seleções, aumentando o número de jogos e dando mais oportunidades
+            para países de diferentes continentes participarem.
+        </p>
+    </section>
+
+    <section id="impacto" class="secao">
+        <h2>🏆 Expectativas e Impacto</h2>
+        <p>
+            A edição de 2026 promete grande impacto econômico e cultural, com jogos de alto nível
+            e maior alcance global do futebol.
+        </p>
+    </section>
+
+    <!-- BOTÃO -->
+    <button onclick="mostrarTabela()">Mostrar Tabela de Jogos</button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function mostrarTabela() {
+            if (document.getElementById("tabela")) return;
+
+            var img = document.createElement("img");
+            img.src = "img/Tabela_Jogos.png"; // troque pelo nome correto da imagem
+            img.id = "tabela";
+
+            img.style.display = "block";
+            img.style.marginTop = "20px";
+            img.style.maxWidth = "100%";
+            img.style.borderRadius = "10px";
+
+            document.body.appendChild(img);
+        }
+    </script>
+
+</body>
+</html>
