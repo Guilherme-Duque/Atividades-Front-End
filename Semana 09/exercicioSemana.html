@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Prática: Lógica com JavaScript</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f0f2f5;
+            --card-bg: #ffffff;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        header h1 { margin: 0; font-size: 2em; }
+        header p { margin: 10px 0 0; opacity: 0.9; }
+
+        .question-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-top: 5px solid var(--accent-color);
+        }
+
+        .question-header {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* --- Estilos para os Formulários das Resoluções --- */
+        .form-group {
+            margin: 15px 0;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        input, select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--primary-color);
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #1a252f;
+        }
+
+        .result-box {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 20px;
+            font-size: 0.85em;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Laboratório de Programação FrontEnd </h1>
+            <p>Exercícios de Fixação: Lógica e Manipulação de DOM</p>
+        </header>
+
+        <!-- EXERCÍCIO 01 -->
+        <section class="question-card">
+            <div class="question-header">⚡ Exercício 01: Validador de CPF</div>
+            <div class="form-group">
+                <input type="text" id="cpfInput" placeholder="Digite o CPF (apenas números)" maxlength="14">
+                <button onclick="validarCPF()">Validar</button>
+            </div>
+            <div id="resultadoCpf" class="result-box"></div>
+        </section>
+
+        <!-- EXERCÍCIO 02 -->
+        <section class="question-card">
+            <div class="question-header">🌡️ Exercício 02: Conversor Dinâmico</div>
+            <div class="form-group">
+                <div>
+                    <label for="inputCelsius">Celsius (°C):</label><br>
+                    <input type="number" id="inputCelsius" step="0.1" placeholder="Ex: 25.00">
+                </div>
+                <div>
+                    <label for="inputFahrenheit">Fahrenheit (°F):</label><br>
+                    <input type="number" id="inputFahrenheit" step="0.1" placeholder="Ex: 77.00">
+                </div>
+            </div>
+        </section>
+
+        <!-- EXERCÍCIO 03 -->
+        <section class="question-card">
+            <div class="question-header">🎓 Exercício 03: Média Escolar</div>
+            <div class="form-group">
+                <input type="text" id="nomeAluno" placeholder="Nome do Aluno">
+                <input type="number" id="nota1" placeholder="Nota 1" step="0.1" min="0" max="10">
+                <input type="number" id="nota2" placeholder="Nota 2" step="0.1" min="0" max="10">
+                <input type="number" id="nota3" placeholder="Nota 3" step="0.1" min="0" max="10">
+                <button onclick="calcularMedia()">Calcular Média</button>
+            </div>
+            <div id="resultadoMedia" class="result-box"></div>
+        </section>
+
+        <!-- EXERCÍCIO 04 -->
+        <section class="question-card">
+            <div class="question-header">💳 Exercício 04: Taxas Infinity Bank</div>
+            <div class="form-group">
+                <select id="bandeira">
+                    <option value="" disabled selected>Selecione a Bandeira</option>
+                    <option value="visa">Visa (2%)</option>
+                    <option value="master">Mastercard (1.85%)</option>
+                    <option value="elo">Elo (3%)</option>
+                </select>
+                <input type="number" id="valorVenda" placeholder="Valor da Venda (R$)" step="0.01" min="0">
+                <input type="number" id="qtdParcelas" placeholder="Qtd. Parcelas" min="1" step="1">
+                <button onclick="simularVenda()">Simular</button>
+            </div>
+            <div id="resultadoBanco" class="result-box" style="background-color: #f8f9fa; border-left: 4px solid var(--primary-color);"></div>
+        </section>
+
+        <footer>
+            Atividade Prática de JavaScript - Desenvolvido com ❤️ by Dacio Machado 
+        </footer>
+    </div>
+
+    <!-- SCRIPT COM A LÓGICA DE TODOS OS EXERCÍCIOS -->
+    <script>
+        function validarCPF() {
+            let cpfInput = document.getElementById('cpfInput').value;
+            let divResultado = document.getElementById('resultadoCpf');
+            
+            let cpf = cpfInput.replace(/\D/g, '');
+            divResultado.style.display = 'block';
+
+            if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) {
+                mostrarErroCpf(divResultado);
+                return;
+            }
+
+            let soma = 0;
+            for (let i = 1; i <= 9; i++) soma += parseInt(cpf.substring(i - 1, i)) * (11 - i);
+            let resto = (soma * 10) % 11;
+            if (resto === 10 || resto === 11) resto = 0;
+            if (resto !== parseInt(cpf.substring(9, 10))) {
+                mostrarErroCpf(divResultado);
+                return;
+            }
+
+            soma = 0;
+            for (let i = 1; i <= 10; i++) soma += parseInt(cpf.substring(i - 1, i)) * (12 - i);
+            resto = (soma * 10) % 11;
+            if (resto === 10 || resto === 11) resto = 0;
+            if (resto !== parseInt(cpf.substring(10, 11))) {
+                mostrarErroCpf(divResultado);
+                return;
+            }
+
+            divResultado.style.color = 'green';
+            divResultado.style.backgroundColor = '#e8f8f5';
+            divResultado.innerText = 'CPF Válido!';
+        }
+
+        function mostrarErroCpf(elemento) {
+            elemento.style.color = 'red';
+            elemento.style.backgroundColor = '#fdedec';
+            elemento.innerText = 'CPF Inválido!';
+        }
+
+        const inputC = document.getElementById('inputCelsius');
+        const inputF = document.getElementById('inputFahrenheit');
+
+        inputC.addEventListener('input', function() {
+            if (this.value === '') {
+                inputF.value = '';
+                return;
+            }
+            let c = parseFloat(this.value);
+            let f = (c * 9/5) + 32;
+            inputF.value = f.toFixed(2);
+        });
+
+        inputF.addEventListener('input', function() {
+            if (this.value === '') {
+                inputC.value = '';
+                return;
+            }
+            let f = parseFloat(this.value);
+            let c = (f - 32) * 5/9;
+            inputC.value = c.toFixed(2);
+        });
+
+        function calcularMedia() {
+            let nome = document.getElementById('nomeAluno').value;
+            let n1 = Number(document.getElementById('nota1').value);
+            let n2 = Number(document.getElementById('nota2').value);
+            let n3 = Number(document.getElementById('nota3').value);
+            let divRes = document.getElementById('resultadoMedia');
+
+            if (!nome || isNaN(n1) || isNaN(n2) || isNaN(n3)) {
+                alert("Por favor, preencha todos os campos corretamente.");
+                return;
+            }
+
+            let media = (n1 + n2 + n3) / 3;
+            divRes.style.display = 'block';
+            divRes.style.backgroundColor = '#fff';
+
+            if (media >= 7.0) {
+                divRes.style.color = 'blue';
+                divRes.innerHTML = `Aluno: ${nome} <br> Média: ${media.toFixed(2)} - <strong>Aprovado</strong>`;
+            } else if (media >= 4.0) {
+                divRes.style.color = 'green';
+                let falta = 10 - media; 
+                divRes.innerHTML = `Aluno: ${nome} <br> Média: ${media.toFixed(2)} - <strong>Exame</strong> <br> Faltam ${falta.toFixed(2)} pontos para atingir 10.`;
+            } else {
+                divRes.style.color = 'red';
+                divRes.innerHTML = `Aluno: ${nome} <br> Média: ${media.toFixed(2)} - <strong>Reprovado</strong>`;
+            }
+        }
+
+        function simularVenda() {
+            let bandeira = document.getElementById('bandeira').value;
+            let valor = Number(document.getElementById('valorVenda').value);
+            let parcelas = Number(document.getElementById('qtdParcelas').value);
+            let divRes = document.getElementById('resultadoBanco');
+
+            if (!bandeira || valor <= 0 || parcelas <= 0) {
+                alert("Por favor, preencha a bandeira, um valor válido e a quantidade de parcelas.");
+                return;
+            }
+
+            let taxaBandeiraPercentual = 0;
+            
+            switch(bandeira) {
+                case 'visa': taxaBandeiraPercentual = 0.02; break;
+                case 'master': taxaBandeiraPercentual = 0.0185; break;
+                case 'elo': taxaBandeiraPercentual = 0.03; break;
+            }
+
+            let valorTaxaBandeira = valor * taxaBandeiraPercentual;
+            let valorJuros = valor * (0.0035 * parcelas); 
+            let taxaFixaMensal = 12.50 * parcelas; 
+            
+            let valorTotal = valor + valorTaxaBandeira + valorJuros + taxaFixaMensal;
+            let valorParcela = valorTotal / parcelas;
+
+            divRes.style.display = 'block';
+            divRes.innerHTML = `
+                <p><strong>Resumo da Simulação (${bandeira.toUpperCase()} em ${parcelas}x):</strong></p>
+                <hr style="border:0; border-top:1px solid #ccc; margin: 10px 0;">
+                <p>Valor Original: R$ ${valor.toFixed(2)}</p>
+                <p>Valor da Taxa da Bandeira: R$ ${valorTaxaBandeira.toFixed(2)}</p>
+                <p>Valor dos Juros (0,35% a.m.): R$ ${valorJuros.toFixed(2)}</p>
+                <p>Taxas Fixas ($12,50 a.m.): R$ ${taxaFixaMensal.toFixed(2)}</p>
+                <p style="font-size: 1.1em; margin-top:10px;"><strong>Valor da Parcela: R$ ${valorParcela.toFixed(2)}</strong></p>
+                <p><em>Total a Pagar: R$ ${valorTotal.toFixed(2)}</em></p>
+            `;
+        }
+    </script>
+</body>
+</html>
