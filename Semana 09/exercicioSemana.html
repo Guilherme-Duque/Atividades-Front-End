@@ -58,7 +58,9 @@
             align-items: center;
         }
 
-        /* --- Estilos para os Formulários das Resoluções --- */
+        ul { padding-left: 20px; }
+        li { margin-bottom: 8px; }
+
         .form-group {
             margin: 15px 0;
             display: flex;
@@ -102,6 +104,8 @@
             display: none;
         }
 
+        .classe-riscado { text-decoration: line-through; color: #95a5a6; }
+
         footer {
             text-align: center;
             margin-top: 50px;
@@ -119,7 +123,6 @@
             <p>Exercícios de Fixação: Lógica e Manipulação de DOM</p>
         </header>
 
-        <!-- EXERCÍCIO 01 -->
         <section class="question-card">
             <div class="question-header">⚡ Exercício 01: Validador de CPF</div>
             <div class="form-group">
@@ -129,7 +132,6 @@
             <div id="resultadoCpf" class="result-box"></div>
         </section>
 
-        <!-- EXERCÍCIO 02 -->
         <section class="question-card">
             <div class="question-header">🌡️ Exercício 02: Conversor Dinâmico</div>
             <div class="form-group">
@@ -144,7 +146,6 @@
             </div>
         </section>
 
-        <!-- EXERCÍCIO 03 -->
         <section class="question-card">
             <div class="question-header">🎓 Exercício 03: Média Escolar</div>
             <div class="form-group">
@@ -157,7 +158,6 @@
             <div id="resultadoMedia" class="result-box"></div>
         </section>
 
-        <!-- EXERCÍCIO 04 -->
         <section class="question-card">
             <div class="question-header">💳 Exercício 04: Taxas Infinity Bank</div>
             <div class="form-group">
@@ -174,12 +174,44 @@
             <div id="resultadoBanco" class="result-box" style="background-color: #f8f9fa; border-left: 4px solid var(--primary-color);"></div>
         </section>
 
+        <section class="question-card">
+            <div class="question-header">👥 Exercício 05: Gestão de Convidados VIP</div>
+            <div class="form-group" style="background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee;">
+                <input type="text" id="nomeConvidado" placeholder="Digite o nome do convidado" style="flex: 1;">
+                <button onclick="adicionarConvidado()">Adicionar</button>
+            </div>
+            <ul id="listaConvidados" style="list-style-type: none; padding: 0; margin-top: 20px;"></ul>
+        </section>
+
+        <section class="question-card">
+            <div class="question-header">🎉 Exercício 06: Crédito para Festas & Eventos</div>
+            <div class="form-group">
+                <select id="pacoteFesta">
+                    <option value="" disabled selected>Selecione o Pacote</option>
+                    <option value="50">Standard (R$ 50,00/pessoa)</option>
+                    <option value="80">Premium (R$ 80,00/pessoa)</option>
+                    <option value="120">Infinity Deluxe (R$ 120,00/pessoa)</option>
+                </select>
+                <input type="number" id="qtdPessoasFesta" placeholder="Qtd. de Convidados" min="1" step="1">
+                <button onclick="calcularFesta()">Calcular Orçamento</button>
+            </div>
+            <div id="resultadoFesta" class="result-box" style="background-color: #f8f9fa; border-left: 4px solid var(--accent-color);"></div>
+        </section>
+
+        <section class="question-card">
+            <div class="question-header">🛡️ Exercício 07: Validador de Segurança Infinity</div>
+            <div class="form-group">
+                <input type="text" id="numCartao" placeholder="Digite o Número do Cartão" maxlength="19" style="flex: 1; min-width: 250px;">
+                <button onclick="analisarCartao()">Analisar Cartão</button>
+            </div>
+            <div id="resultadoCartao" class="result-box"></div>
+        </section>
+
         <footer>
             Atividade Prática de JavaScript - Desenvolvido com ❤️ by Dacio Machado 
         </footer>
     </div>
 
-    <!-- SCRIPT COM A LÓGICA DE TODOS OS EXERCÍCIOS -->
     <script>
         function validarCPF() {
             let cpfInput = document.getElementById('cpfInput').value;
@@ -310,6 +342,145 @@
                 <p>Taxas Fixas ($12,50 a.m.): R$ ${taxaFixaMensal.toFixed(2)}</p>
                 <p style="font-size: 1.1em; margin-top:10px;"><strong>Valor da Parcela: R$ ${valorParcela.toFixed(2)}</strong></p>
                 <p><em>Total a Pagar: R$ ${valorTotal.toFixed(2)}</em></p>
+            `;
+        }
+
+        function adicionarConvidado() {
+            let nomeInput = document.getElementById('nomeConvidado');
+            let nome = nomeInput.value.trim();
+            if (!nome) return;
+
+            let ul = document.getElementById('listaConvidados');
+            let li = document.createElement('li');
+            li.style.cssText = "background: #fff; padding: 12px; margin-bottom: 8px; border-radius: 4px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: center; border-left: 4px solid var(--primary-color);";
+
+            let spanNome = document.createElement('span');
+            spanNome.textContent = nome;
+            spanNome.style.fontWeight = "bold";
+
+            let divBotoes = document.createElement('div');
+
+            let btnConcluir = document.createElement('button');
+            btnConcluir.textContent = "Concluir";
+            btnConcluir.style.cssText = "padding: 5px 10px; font-size: 0.85em; background: #27ae60; margin-left: 5px;";
+            btnConcluir.onclick = () => spanNome.classList.toggle('classe-riscado');
+
+            let btnEditar = document.createElement('button');
+            btnEditar.textContent = "Editar";
+            btnEditar.style.cssText = "padding: 5px 10px; font-size: 0.85em; background: #f39c12; margin-left: 5px;";
+            btnEditar.onclick = () => {
+                let novoNome = prompt("Editar nome do convidado:", spanNome.textContent);
+                if (novoNome !== null && novoNome.trim() !== "") {
+                    spanNome.textContent = novoNome.trim();
+                }
+            };
+
+            let btnExcluir = document.createElement('button');
+            btnExcluir.textContent = "Excluir";
+            btnExcluir.style.cssText = "padding: 5px 10px; font-size: 0.85em; background: #e74c3c; margin-left: 5px;";
+            btnExcluir.onclick = () => li.remove();
+
+            divBotoes.appendChild(btnConcluir);
+            divBotoes.appendChild(btnEditar);
+            divBotoes.appendChild(btnExcluir);
+
+            li.appendChild(spanNome);
+            li.appendChild(divBotoes);
+            ul.appendChild(li);
+
+            nomeInput.value = '';
+            nomeInput.focus();
+        }
+
+        function calcularFesta() {
+            let pacote = Number(document.getElementById('pacoteFesta').value);
+            let qtd = Number(document.getElementById('qtdPessoasFesta').value);
+            let divRes = document.getElementById('resultadoFesta');
+
+            if (!pacote || qtd <= 0) {
+                alert("Por favor, selecione um pacote e informe uma quantidade válida.");
+                return;
+            }
+
+            let base = pacote * qtd;
+            let taxaServico = base * 0.10;
+            let desconto = 0;
+
+            if (qtd > 100) {
+                desconto = (base + taxaServico) * 0.05;
+            }
+
+            let total = (base + taxaServico) - desconto;
+
+            divRes.style.display = 'block';
+            divRes.style.color = '#333';
+            divRes.innerHTML = `
+                <p>Custo Bruto (${qtd} pessoas): <strong>R$ ${base.toFixed(2)}</strong></p>
+                <p>Taxa de Serviço (10%): <strong>R$ ${taxaServico.toFixed(2)}</strong></p>
+                ${desconto > 0 ? `<p style="color: #27ae60;">Desconto Aplicado (5%): <strong>- R$ ${desconto.toFixed(2)}</strong></p>` : ''}
+                <hr style="border: 0; border-top: 1px solid #ccc; margin: 10px 0;">
+                <p style="font-size: 1.2em;">Total Final: <strong>R$ ${total.toFixed(2)}</strong></p>
+            `;
+        }
+
+        function analisarCartao() {
+            let rawNum = document.getElementById('numCartao').value;
+            let num = rawNum.replace(/[\s\.-]/g, '');
+            let divRes = document.getElementById('resultadoCartao');
+
+            if (num.length < 13 || num.length > 16 || isNaN(num)) {
+                alert("O cartão deve ter entre 13 e 16 dígitos numéricos.");
+                return;
+            }
+
+            let sum = 0;
+            let arrNum = num.split('').reverse();
+            
+            for (let i = 0; i < arrNum.length; i++) {
+                let digito = parseInt(arrNum[i]);
+                
+                if (i % 2 !== 0) {
+                    digito *= 2;
+                    if (digito > 9) digito -= 9;
+                }
+                sum += digito;
+            }
+
+            let isValido = (sum % 10 === 0);
+
+            let bandeira = "Desconhecida";
+            if (num.startsWith('4')) bandeira = "Visa";
+            else if (num.startsWith('5')) bandeira = "Mastercard";
+            else if (num.startsWith('3')) bandeira = "American Express / Diners";
+            else if (num.startsWith('6')) bandeira = "Discover / Elo";
+
+            let setor = "Desconhecido";
+            let d1 = parseInt(num.charAt(0));
+            if (d1 === 1 || d1 === 2) setor = "Companhias Aéreas";
+            else if (d1 === 3) setor = "Viagens e Entretenimento";
+            else if (d1 === 4 || d1 === 5) setor = "Bancário e Financeiro";
+            else if (d1 === 6) setor = "Merchandising e Bancário";
+            else if (d1 === 7) setor = "Petróleo";
+            else if (d1 === 8) setor = "Saúde e Telecomunicações";
+            else if (d1 === 9) setor = "Nacional";
+
+            divRes.style.display = 'block';
+            divRes.style.color = '#333';
+            
+            if (isValido) {
+                divRes.style.backgroundColor = '#e8f8f5';
+                divRes.style.borderLeft = '4px solid #27ae60';
+            } else {
+                divRes.style.backgroundColor = '#fdedec';
+                divRes.style.borderLeft = '4px solid #e74c3c';
+            }
+
+            divRes.innerHTML = `
+                <h3 style="margin-top:0;">Painel de Info do Cartão</h3>
+                <p>Status Matemático: ${isValido ? '<strong style="color:green;">VÁLIDO</strong>' : '<strong style="color:red;">INVÁLIDO</strong>'}</p>
+                <p>Bandeira Identificada: <strong>${bandeira}</strong></p>
+                <p>Categoria do Setor (Dígito 1): <strong>${setor}</strong></p>
+                <p>Código IIN (Emissor): <strong>${num.substring(0, 6)}</strong></p>
             `;
         }
     </script>
