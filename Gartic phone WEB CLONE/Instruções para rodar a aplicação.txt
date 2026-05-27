@@ -1,0 +1,1 @@
+Colar o html, CSS e JavaScript no site https://codepen.io/pen/ e usar o Preprocessador Babel
